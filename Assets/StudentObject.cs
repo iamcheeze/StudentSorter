@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StudentsList : MonoBehaviour
+public class StudentObject : MonoBehaviour
 {
-    public static List<string> studentList = new List<string>();
+    public bool isFull;
 
     // Start is called before the first frame update
     void Start()

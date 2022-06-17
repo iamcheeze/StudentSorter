@@ -5,36 +5,78 @@ using TMPro;
 
 public class InputReader : MonoBehaviour
 {
-    private string input;
     public static List<string> studentList = new List<string>();
     public TextMeshProUGUI textList;
     public TMP_InputField inputFieldText;
+    public TextMeshProUGUI numOfStudentsCounter;
     public string s;
+    public int numOfStudents = 0;
 
-    void Start()
-    {
-
-    }
+    public Animator inputFieldAnim;
+    public Animator listAnim;
+    public Animator numOfStudentsAnim;
+    public Animator caminator;
 
     void Update()
     {
         s = inputFieldText.text;
         textList.text = ListToText(studentList);
+        numOfStudentsCounter.text = numOfStudents.ToString();
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            studentList.RemoveAt(studentList.Count - 1);
+            numOfStudents--;
+            numOfStudentsAnim.Play("Bloop");
+        }
+
+        if (numOfStudents < 0)
+        {
+            numOfStudentsAnim.Play("Bloop");
+            numOfStudents++;
+        }
+
+        if (numOfStudents > 16)
+        {
+            studentList.RemoveAt(studentList.Count - 1);
+            numOfStudents--;
+            listAnim.Play("Nope List");
+            numOfStudentsAnim.Play("Bloop");
+            caminator.Play("Camera Shake");
+        }
     }
 
     public void ReadStringInput(string input)
     {
-        input = s;
-        studentList.Add(input);
+        if (inputFieldText.text != "")
+        {
+            input = s;
+            studentList.Add(input);
+            numOfStudents++;
+            inputFieldText.text = "";
+            listAnim.Play("List Bop");
+            inputFieldAnim.Play("Bloop");
+            numOfStudentsAnim.Play("Bloop");
+        }
+        else
+        {
+            inputFieldAnim.Play("Nope");
+            caminator.Play("Camera Shake");
+        }
     }
 
-    private string ListToText(List<string> list)
+    string ListToText(List<string> list)
     {
         string result = "";
         foreach (var listMember in list)
         {
-            result += listMember.ToString() + "\n";
+            result += listMember + "\n";
         }
         return result;
+    }
+
+    public void SelectAnim()
+    {
+        inputFieldAnim.Play("Bop");
     }
 }
