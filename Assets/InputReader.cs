@@ -5,7 +5,7 @@ using TMPro;
 
 public class InputReader : MonoBehaviour
 {
-    public static List<string> studentList = new List<string>();
+    public List<string> studentList = new List<string>();
     public TextMeshProUGUI textList;
     public TMP_InputField inputFieldText;
     public TextMeshProUGUI numOfStudentsCounter;

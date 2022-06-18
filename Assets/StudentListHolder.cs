@@ -5,9 +5,8 @@ using TMPro;
 
 public class StudentListHolder : MonoBehaviour
 {
-    public static List<string> studentList = new List<string>();
-    public string input;
-    public TMP_InputField inputFieldText;
+    public InputReader inputReader;
+    public List<string> studentList = new List<string>();
 
     void Awake()
     {
@@ -16,7 +15,6 @@ public class StudentListHolder : MonoBehaviour
 
     void Update()
     {
-        input = inputFieldText.text;
-        studentList.Add(input);
+        inputReader.studentList = studentList;
     }
 }
