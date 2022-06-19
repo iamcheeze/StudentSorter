@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ArrowTransitioner : MonoBehaviour
 {
     public Animator anim;
     public InputReader iR;
     public SpriteRenderer sr;
+    public Animator purpAnim;
+    public GameObject purp;
+    public AudioSource sound;
 
     void Update()
     {
@@ -30,7 +32,9 @@ public class ArrowTransitioner : MonoBehaviour
     {
         if (iR.numOfStudents == 16)
         {
-            SceneManager.LoadScene("StudentSorting");
+            purp.SetActive(true);
+            purpAnim.Play("end");
+            sound.Play();
         }
     }
 

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: d86fc7cbfd3b24be290fc964789f8f37
+  - enabled: 1
     path: Assets/Scenes/StudentNameTitle.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -13,5 +16,5 @@ EditorBuildSettings:
     guid: 0a4e1ba2493a84af5886c1bc878fb451
   - enabled: 1
     path: Assets/Scenes/StudentSortingFinal.unity
-    guid: da88724c8d6ac47689792a809ba1d7fc
+    guid: 6a0bffa0ff7a84b1cb56800f6e4281cd
   m_configObjects: {}

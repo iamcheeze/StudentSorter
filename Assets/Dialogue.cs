@@ -14,6 +14,8 @@ public class Dialogue : MonoBehaviour
     public Animator botAnim;
     public Animator speechBubbleAnim;
 
+    public AudioSource sound;
+
     void Start()
     {
         textComponent.text = string.Empty;
@@ -73,5 +75,10 @@ public class Dialogue : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    public void Sound()
+    {
+        sound.Play();
     }
 }

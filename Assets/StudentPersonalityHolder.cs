@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class StudentPersonalityHolder : MonoBehaviour
 {
-    public StudentObject student;
+    public List<string> neutralList = new List<string>();
+    public List<string> badList = new List<string>();
+    public List<string> goodList = new List<string>();
 
-    public bool isGood;
-    public bool isBad;
-
-    void Update()
+    void Awake()
     {
-        isBad = student.isBad;
-        isGood = student.isGood;
+        DontDestroyOnLoad(gameObject);
     }
 }

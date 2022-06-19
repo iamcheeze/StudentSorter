@@ -17,6 +17,10 @@ public class InputReader : MonoBehaviour
     public Animator numOfStudentsAnim;
     public Animator caminator;
 
+    public AudioSource nope;
+    public AudioSource added;
+    public AudioSource bloop;
+
     void Update()
     {
         s = inputFieldText.text;
@@ -28,6 +32,8 @@ public class InputReader : MonoBehaviour
             studentList.RemoveAt(studentList.Count - 1);
             numOfStudents--;
             numOfStudentsAnim.Play("Bloop");
+            caminator.Play("Camera Shake");
+            nope.Play();
         }
 
         if (numOfStudents < 0)
@@ -41,6 +47,8 @@ public class InputReader : MonoBehaviour
             studentList.RemoveAt(studentList.Count - 1);
             numOfStudents--;
             listAnim.Play("Nope List");
+            nope.Play();
+
             numOfStudentsAnim.Play("Bloop");
             caminator.Play("Camera Shake");
         }
@@ -57,11 +65,13 @@ public class InputReader : MonoBehaviour
             listAnim.Play("List Bop");
             inputFieldAnim.Play("Bloop");
             numOfStudentsAnim.Play("Bloop");
+            bloop.Play();
         }
         else
         {
             inputFieldAnim.Play("Nope");
             caminator.Play("Camera Shake");
+            nope.Play();
         }
     }
 
@@ -78,5 +88,6 @@ public class InputReader : MonoBehaviour
     public void SelectAnim()
     {
         inputFieldAnim.Play("Bop");
+        bloop.Play();
     }
 }
