@@ -13,6 +13,12 @@ public class TitleController : MonoBehaviour
         {
             purpAnim.Play("end");
             sound.Play();
+
+            GameObject list = GameObject.Find("List");
+            GameObject goodobad = GameObject.Find("Bad Or Good Holder");
+
+            Destroy(list);
+            Destroy(goodobad);
         }
     }
 }
